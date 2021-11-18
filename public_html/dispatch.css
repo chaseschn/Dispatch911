@@ -47,11 +47,53 @@ body {
   border: 2px solid black;
   position: fixed;
   top: 20vh;
-  left: 10vw;
-  width: 75vw;
-  height: 75vh;
+  left: 20vw;
+  width: 60vw;
+  height: 40vh;
   padding: 10px;
   margin: 15px;
   background-color: khaki;
 }
 
+#getDepartMsg {
+  border: 2px solid black;
+  position: fixed;
+  bottom: 10vh;
+  left: 0;
+  width: 40vw;
+  height: 27vh;
+  background-color: red;
+  overflow-y: scroll;
+}
+#createDepartMsg {
+  border: 2px solid black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 40vw;
+  height: 75px;
+  background-color:yellowgreen;
+}
+.message {
+  width: 500px;
+  height: fit-content;
+}
+#getDispatchMsg {
+  border: 2px solid black;
+  position: fixed;
+  bottom: 10vh;
+  right: 0;
+  width: 40vw;
+  height: 27vh;
+  background-color: lawngreen;
+  overflow-y: scroll;
+}
+#createDispatchMsg {
+  border: 2px solid black;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 40vw;
+  height: 75px;
+  background-color:yellowgreen;
+}

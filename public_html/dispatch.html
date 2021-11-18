@@ -1,0 +1,48 @@
+<!--Purpose: the main page for repsonders to view the 
+dispatch map and create messages-->
+
+<!DOCTYPE html>
+<html lang="En">
+
+<head>
+  <meta charset='utf-8'>
+  <link rel="stylesheet" type="text/css" href="./dispatch.css">
+  <script src="./jquery.js"></script>
+  <script src='./code.js'></script>
+  <title>Responders</title>
+</head>
+
+<body>
+
+  <div id='header'>
+    <h1>Dispatch: Responders</h1>
+    <div class='topnav'>
+      <a href="#home">Home</a>
+      <a href="#records">Records</a>
+    </div>
+  </div>
+
+
+  <div id="map">Map Location</div>
+
+  <div id='getDepartMsg'>Department Chat</div>
+
+  <div id="createDepartMsg">
+    <label for="message">Internal Department Message</label>
+    <input class="message" type="text">
+    <input type="button" id="sendDepartMsg" onclick="createDepartMsg();" value="Send" />
+  </div>
+  </div>
+
+
+  <div id='getDispatchMsg'>Dispatch Wide Chat</div>
+  <div id="createDispatchMsg">
+    <label for="message">Dispatch Wide Message</label>
+    <input class="message" type="text">
+    <input type="button" id="sendDispatchMsg" onclick="createDispatchMsg();" value="Send" />
+  </div>
+
+
+</body>
+
+</html>
