@@ -1,0 +1,74 @@
+/*Style sheet for ./account*/
+
+ body {
+  background-color: grey;
+  font-family: Arial;
+  font-size: 15pt;
+  margin: 0px auto;
+}
+
+
+/* Styles the div of the images */
+.images { 
+  position: fixed;
+  top: 25vh;
+  left: 10vw;
+  width: 75%; 
+  margin-right: 35%;	
+}  
+
+#login {
+  position: fixed;
+  padding-top: 25vh;
+  right:0; 
+  top: 0;
+  width: 25vw;
+  height: 100vh;
+  font-family: Georgia;
+  border: 2px black solid;
+  background-color: lightslategray;
+}
+
+#title {
+  position: fixed;
+  left:0px;
+  top:0px;
+  width: 100vw;
+  height: 20vh;
+  background-color: #444444;
+  text-align: justify;
+  color: white;
+
+}
+a {
+  font-size: 13px;
+}
+
+form {
+  /* Center the form on the page */
+  position: fixed;
+  top: 25vh;
+  left: 25vw;
+  margin: 0 auto;
+  width: 500px;
+  /* Form outline */
+  padding: 10px;; 
+  border: 1px solid #CCC;
+  border-radius: 5%;
+  background-color: rgb(173,184,176);
+  }
+
+label {
+  /* Uniform size & alignment*/
+     display: inline-block;
+     width: 150px;
+     text-align: left;
+			}
+
+input, textarea {
+    font: 14px sans-serif;
+    width: 300px;
+    color: black;
+    box-sizing: border-box;
+    border: 1px solid #999;
+}

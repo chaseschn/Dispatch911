@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Purpose: Login page for Repsonders . -->
+
+<html lang="En">
+
+<head>
+	<meta charset="utf-8" />
+	<title> Dispatch Login </title>
+	<Link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="./code.js"></script>
+</head>
+
+<body>
+	<div id="title">
+		<h1> Register </h1>
+	</div>
+
+	<div>
+		<form>
+			<label for="fname">First name:</label>
+			<input type="text" id="fname" name="fname" pattern="[A-Z][a-z]*" placeholder="John" required><br>
+
+			<label for="lname">Last name:</label>
+			<input type="text" id="lname" name="lname" pattern="[A-Z][a-z]*" placeholder="Doe" required><br>
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required><br>
+
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" pattern=".{8,}"
+				placeholder="At least 8 characters long" required><br>
+
+			<label for="rec_email">Recovery Email:</label>
+			<input type="email" id="rec_email" name="rec_email"><br>
+
+			<label for="phone">Phone Number:</label>
+			<input type="tel" id="phone" name="phone" placeholder="123-4567" pattern="[0-9]{3}-[0-9]{4}" required><br>
+
+			<label for="function">Function:</label>
+			<select id="fuction" name="function">
+				<option value="fire">Fire</option>
+				<option value="police">Police</option>
+				<option value="comm">Communications</option>
+				<option value="gov">Goverment Official</option>
+			</select>
+			<br>
+
+			<label for="unit">Unit/Station</label>
+			<input type="text" id="unit" name="unit" placeholder="Station 2">
+			<br><br>
+			<input type="submit" value="Click to Register">
+		</form>
+	</div>
+	</div>
+</body>
+
+</html>
