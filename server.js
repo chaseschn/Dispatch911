@@ -30,7 +30,8 @@ var UserSchema = new Schema({
   phone: Number,
   function: String,
   unit: String,
-  pins: [Schema.Types.ObjectId]
+  pins: [Schema.Types.ObjectId],
+  messages: [Schema.Types.ObjectId]
 });
 var User = mongoose.model('User', ItemSchema);
 
@@ -65,6 +66,13 @@ var MapSchema = new Schema({
   pins: [Schema.Types.ObjectId]
 });
 var Map = mongoose.model('Map', UserSchema);
+// Chat SCHEMA
+var ChatSchema = new Schema({
+  time: { type: Date, default: Date.now },
+  alias: String,
+  message: String
+});
+var ChatMessage = mongoose.model('Chat', ChatSchema );
 
 /// OBJECTS
 app.use('/', express.static('public_html'))
@@ -76,6 +84,10 @@ app.get('/get/pins', (req, res) => getPins(req, res))
 app.post('/post/pin'), (req, res) => postPin(req, res))
 app.get('/get/records', (req, res) => getRecords(req, res))
 app.post('/add/user', (req, res) => addUser(req))
+
+// Wide chat
+app.get('/all/chat/post', (req, res) => getAllChat(req, res))
+app.post('/all/chat/get', (req, res) => postAllChat(req, res))
 
 // Redirect link
 app.all('*', (req, res) => {res.redirect('/')});
@@ -136,18 +148,37 @@ function login(req, res) {
     });
 }
 
+function getAllChat(req, res) {
+  var msg = mongoose.model('ChatMessage', ChatMessageSchema);
+    msg.find({})
+      .sort({time : 1})
+      .exec((error, results) =>
+    res.send(JSON.stringify(results))
+  );
+}
+
+function postAllChat(req, res){
+  let getMsg = req.body;
+  chat = new ChatMessage({ alias: getMsg.alias, message: getMsg.msg });
+  chat.save((err) => { if (err) { console.log('An error occurred.') }});
+}
+
 function getMap(req, res) {
 
 }
+
 function postMap(req, res) {
 
 }
+
 function getPins(req, res) {
 
 }
+
 function postPin(req, res) {
 
 }
+
 function getRecords(req, res) {
 
 }
