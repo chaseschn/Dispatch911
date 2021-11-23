@@ -90,7 +90,7 @@ app.get('/all/chat/post', (req, res) => getAllChat(req, res))
 app.post('/all/chat/get', (req, res) => postAllChat(req, res))
 
 // Redirect link
-app.all('*', (req, res) => {res.redirect('/')});
+app.all('*', (req, res) => {res.redirect('/home.html')});
 // Start server
 app.listen(port, () => {console.log('SERVER STARTED');});
 
