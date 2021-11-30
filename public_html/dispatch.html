@@ -23,25 +23,41 @@ dispatch map and create messages-->
 
 
   <div id="map"></div>
+  <div id="message_side">
+    <div id="message_side_header">THIS WILL BE THE HEADER</div>
+      <div id="chat_tabs">
 
-  <div id='getDepartMsg'>Department Chat</div>
+        <input class ="chat_tab" type="radio" id="chat_all" name="chat_tabs" checked="checked" value="All">
+        <label for="chat_all">All Chat</label>
+        <div id="tab">
+            <div id="all_chat_box"></div>
+        </div>
 
-  <div id="createDepartMsg">
-    <label for="message">Internal Department Message</label>
-    <input class="message" type="text">
-    <input type="button" id="sendDepartMsg" onclick="createDepartMsg();" value="Send" />
-  </div>
+        <input type="radio" class ="chat_tab" id="chat_police" name="chat_tabs"  value="Police">
+        <label for="chat_police">Police Chat</label>
+        <div id="tab">
+            <div id="police_chat_box"></div>
+        </div>
 
+        <input type="radio" class ="chat_tab" id="chat_fire" name="chat_tabs"  value="Fire">
+        <label for="chat_fire">Fire Chat</label>
+        <div id="tab">
+            <div id="fire_chat_box"></div>
+        </div>
 
-  <div id='getDispatchMsg'>Dispatch Wide Chat</div>
-  <div id="createDispatchMsg">
-    <label for="message">Dispatch Wide Message</label>
-    <input class="message" type="text">
-    <input type="button" id="sendDispatchMsg" onclick="createDispatchMsg();" value="Send" />
-  </div>
+        <input type="radio" class ="chat_tab"  id="chat_ems" name="chat_tabs" value="EMS">
+        <label for="chat_ems">EMS Chat</label>
+        <div id="tab">
+            <div id="ems_chat_box"></div>
+        </div>
+      </div>
+      <input class="message" type="text" name="message" id="chat_message">
+      <input type="button" id="send_button" onclick="send()" value="Send Message">
+    </div>
 
 
 </body>
+
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="http://code.jquerygeo.com/jquery.geo-1.1.0.min.js"></script>
 <script src="./dispatch.js">getMap();</script>
