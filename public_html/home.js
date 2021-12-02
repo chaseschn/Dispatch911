@@ -104,7 +104,7 @@ function displayPin(result) {
 //Calls for pin updates from the server/db. 
 function updateMap() {
     $.ajax({
-        url: '/test',
+        url: '/get/pins',
         method: 'GET',
         success: (result) => displayPin(result)
     });
