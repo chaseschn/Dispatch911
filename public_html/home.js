@@ -2,7 +2,7 @@
 File: home.js
 Purpose: General users can report and view
 reports on the map.
-Supports index.html functions. 
+Supports home.html functions. 
 
 
 This creates pins and updates the map for the general users
@@ -18,6 +18,7 @@ $(function getMap() {
             find: "point",
         },
         click: positionEventHandler,
+        move: updateMap,
     });
     // This function displays the coordinates once user clicks
     function positionEventHandler(e, geo) {
@@ -99,7 +100,7 @@ function displayPin(result) {
             + this.properties.department + '</span>', false);
     });
     //refresh the map
-    //map.geomap("refresh");
+    map.geomap("refresh");
 };
 //Calls for pin updates from the server/db. 
 function updateMap() {
@@ -110,4 +111,4 @@ function updateMap() {
     });
 }
 //Interval to check for pin updates
-setInterval(() => updateMap(), 10000);
+//setInterval(() => updateMap(), 10000);
