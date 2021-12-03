@@ -4,7 +4,6 @@ Purpose: General users can report and view
 reports on the map.
 Supports home.html functions. 
 
-
 This creates pins and updates the map for the general users
 */
 $(function getMap() {
