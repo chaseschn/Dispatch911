@@ -168,8 +168,10 @@ function postMap(req, res) {
 This function retrieves pins from db and send it users
 */
 function getPins(req, res) {
+  var dateObj = new Date();
+  currentDate = dateObj.toDateString(); // today's date; ex: 'Sun Dec 05 2021'
   var pins = mongoose.model('Pin', PinSchema);
-  pins.find({}).exec((error, results) => {//finds all pins. need to search for dates
+  pins.find({ time : currentDate}).exec((error, results) => {//finds all pins. need to search for dates
     res.send(JSON.stringify(results))
   });
 }
