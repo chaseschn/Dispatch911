@@ -43,11 +43,11 @@ function createReport() {
             lat: $('#lat').val(),
             long: $('#long').val(),
             description: $('#report').val(),
-            deparment: $('department').val(),
-            time: Date.now()
+            deparment: $("input[type='radio'][name='department']:checked").val(),
+            time: new Date()
         },
-        success: (result) => updateMap()
     });
+    updateMap();
 };
 /*
 This function displays the pin information on the map
@@ -87,6 +87,7 @@ function displayPin(result) {
                 description: pin.description,
                 department: pin.department,
                 time: pin.time,
+                color: pin.color,
             }
         };
         pins.push(monuments);
@@ -96,7 +97,7 @@ function displayPin(result) {
         // false (at the end) stops jQuery Geo from trying to refresh after each append
         map.geomap("append", this, '<span class="' + this.properties.id + '"> Title: ' + this.properties.title +
             '<br>id: ' + this.properties.id + '<br>Description: ' + this.properties.description + '<br>Department: '
-            + this.properties.department + '</span>', false);
+            + this.properties.department + '<br>Time Reported: ' + this.properties.time + '</span>', false);
     });
     //refresh the map
     map.geomap("refresh");

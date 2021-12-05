@@ -49,6 +49,7 @@ var PinSchema = new Schema({
   long: Number,
   description: String,
   department: String,
+  color: String,
   time: String,
   endTime: String
 });
@@ -177,13 +178,23 @@ This function posts the report into the db
 */
 function postPin(req, res) {
   let getPin = req.body;
+  colorCode = '';
+  if (getPin.department == 'Fire') {
+    colorCode = '#ff0000'//red
+} else if (getPin.department == 'Police') {
+    colorCode = '##0000ff'//blue
+} else {
+    colorCode = '#00ff00'//green
+}
   pin = new Pin({
     title: getPin.title,
     lat: getPin.lat,
     long: getPin.long,
     description: getPin.report,
     department: getPin.department,
+    color: colrCode,
     time: getPin.time,
+    endTime: '',
   });
   pin.save((err) => { if (err) { console.log('An error occurred.') } });
 }
