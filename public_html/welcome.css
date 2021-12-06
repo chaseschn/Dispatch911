@@ -1,0 +1,89 @@
+/*Styling Sheet for welcome.html*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 100%;
+  width: 100%;
+}
+#header{
+  background: #991919;
+  min-height: 10%;
+  min-width: 100%;
+  position: absolute;
+}
+#logo{
+  width: 10%;
+  height: 5vw;
+  float: left;
+  border-radius: 10px;
+}
+#title{
+  font-weight: bolder;
+  font-size: 3vw;
+  float: left;
+  padding-left: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding-top: 1%;
+}
+#header-out{
+  min-height: 6vw;
+  min-width: 100%;
+  background: #2E409E;
+  position: absolute;
+}
+#header-out2 {
+  text-align: center;
+  top: 6vw;
+  min-height: 3.5vw;
+  min-width: 100%;
+  background: #e2e2e2;
+  position: absolute;
+  justify-content:  center;
+  display: flex;
+  align-items: center;
+  padding: 30px, 10%;
+}
+.nav_links{
+  list-style: none;
+}
+.nav_links li{
+  display: inline-block;
+
+}
+
+.nav_links li a{
+  transition: all 0.3s ease 0s;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+
+}
+.nav_links li a:hover{
+  transition: all 0.3s ease 0s;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: block;
+  color: blue;
+
+}
+li,a{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: #708090;
+  text-decoration: none;
+}
+
+#content{
+  position: absolute;
+  background: gray;
+  top: 19vh;
+  min-height: 100%;
+  min-width: 100%;
+  text-align: center;
+  padding: 8%;
+}

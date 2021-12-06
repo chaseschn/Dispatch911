@@ -3,7 +3,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 body{
   height: 100%;
@@ -80,89 +79,16 @@ li,a{
   text-decoration: none;
 }
 
+
 /*Map features*/
 #map {
   border: 2px solid black;
   position: fixed;
   top: 20vh;
-  left: 2vw;
-  width: 55vw;
-  height: 70vh;
+  left: 10vw;
+  width: 75vw;
+  height: 75vh;
   padding: 10px;
   margin: 15px;
   background-color: khaki;
-}
-
-#message_side{
-  border: 2px solid black;
-  position: fixed;
-  top: 20vh;
-  left: 59vw;
-  right: 2vw;
-  height: 70vh;
-  margin: 15px;
-  padding: 2px;
-  background-color: #e2e2e2;;
-}
-
-#message_side_header{
-  text-align: center;
-  font-weight: bolder;
-  background-color: red;
-  height: 5%;
-  font-size: 30px;
-}
-
-#chat_tabs{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#chat_tabs input[type="radio"]{
-  display: none;
-}
-
-#chat_tabs label {
-  padding: 25px;
-  background: #e2e2e2;
-  font-weight: bold;
-  margin: 10px;
-}
-
-#chat_tabs #tab{
-  width: 100%;
-  padding: 20px;
-  background: white;
-  order: 1;
-  display: none;
-  height: 47vh;
-  overflow-y: scroll;
-}
-
-
-#chat_tabs input[type='radio']:checked + label + #tab {
-  display: block;
-}
-
-#chat_tabs input[type='radio']:checked + label {
-  background: white;
-}
-#chat_tabs input[type='radio']:hover + label {
-  color: blue;
-}
-
-#chat_message{
-  margin: 10px;
-  width: 75%;
-  height: 10%;
-  font-size: 20px;
-}
-
-#send_button{
-  width: 15%;
-  height: 10%;
-  margin: 10px;
-  color: white;
-  background-color: #0390fc;
-  border-radius: 10%;
 }

@@ -8,7 +8,7 @@
   <meta charset='utf-8'>
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="./index.css">
+  <link rel="stylesheet" type="text/css" href="./welcome.css">
   <script src="./jquery.js"></script>
   <script src="./home.js"></script>
   <title>Dispatch 911</title>
@@ -34,29 +34,14 @@
 
     <div id="content">
       <h1>Welcome!</h1>
+
     </div>
 
 
   <!--<div id="map"></div>-->
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="http://code.jquerygeo.com/jquery.geo-1.1.0.min.js"></script>
-  <script src="./home.js">updateMap();</script>
-
-  <div class="sidediv">
-    <div id='coords'>
-      <b>Coordinates:</b></br>
-      <label>Latitude<input id='lat' value="Decimal format">
-      </label><br><label>Longitude<input id='long' value="Decimal format"></label>
-    </div>
-    <label>Title:</label> <input>
-    <label>Need:
-      <input type="radio" name="department" id="department" value="Fire" checked required>Fire
-      <input type="radio" name="department" value="Police">Police
-      <input type="radio" name="department" value="Police">Other<br>
-    </label><br><label>Description</label><textarea name='report' rows="10" cols="30" id='report'></textarea>
-    <br> <br>
-    <input type='button' onclick='createReport();' value='Submit'>
-  </div>
+  <script src="./home.js">getMap();</script>
 
 </body>
 
