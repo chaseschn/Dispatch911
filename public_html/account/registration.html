@@ -17,8 +17,7 @@
 		<h1> Register </h1>
 	</div>
 
-	<div>
-		<form>
+	<div id="registration">
 			<label for="fname">First name:</label>
 			<input type="text" id="fname" name="fname" pattern="[A-Z][a-z]*" placeholder="John" required><br>
 
@@ -38,8 +37,8 @@
 			<label for="phone">Phone Number:</label>
 			<input type="tel" id="phone" name="phone" placeholder="123-4567" pattern="[0-9]{3}-[0-9]{4}" required><br>
 
-			<label for="function">Function:</label>
-			<select id="fuction" name="function">
+			<label for="functionVar">Function:</label>
+			<select id="fuctionVar" name="functionVar">
 				<option value="fire">Fire</option>
 				<option value="police">Police</option>
 				<option value="comm">Communications</option>
@@ -50,9 +49,7 @@
 			<label for="unit">Unit/Station</label>
 			<input type="text" id="unit" name="unit" placeholder="Station 2">
 			<br><br>
-			<input type="submit" onclick="createAccount();" value="Click to Register">
-		</form>
-	</div>
+			<input type="button" onclick="createAccount();" value="Click to Register">
 	</div>
 </body>
 
