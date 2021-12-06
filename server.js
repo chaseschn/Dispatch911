@@ -49,6 +49,7 @@ var PinSchema = new Schema({
   long: Number,
   description: String,
   department: String,
+  color: String,
   time: String,
   endTime: String
 });
@@ -167,8 +168,10 @@ function postMap(req, res) {
 This function retrieves pins from db and send it users
 */
 function getPins(req, res) {
+  var dateObj = new Date();
+  currentDate = dateObj.toDateString(); // today's date; ex: 'Sun Dec 05 2021'
   var pins = mongoose.model('Pin', PinSchema);
-  pins.find({}).exec((error, results) => {//finds all pins. need to search for dates
+  pins.find({ time : currentDate}).exec((error, results) => {//finds all pins. need to search for dates
     res.send(JSON.stringify(results))
   });
 }
@@ -177,13 +180,23 @@ This function posts the report into the db
 */
 function postPin(req, res) {
   let getPin = req.body;
+  colorCode = '';
+  if (getPin.department == 'Fire') {
+    colorCode = '#ff0000'//red
+} else if (getPin.department == 'Police') {
+    colorCode = '##0000ff'//blue
+} else {
+    colorCode = '#00ff00'//green
+}
   pin = new Pin({
     title: getPin.title,
     lat: getPin.lat,
     long: getPin.long,
     description: getPin.report,
     department: getPin.department,
+    color: colrCode,
     time: getPin.time,
+    endTime: '',
   });
   pin.save((err) => { if (err) { console.log('An error occurred.') } });
 }
