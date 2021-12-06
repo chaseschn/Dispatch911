@@ -11,7 +11,7 @@ const app = express();
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
-const db  = mongoose.connection;
+const db = mongoose.connection;
 const mongoDBURL = 'mongodb://127.0.0.1/dispatch';
 
 // Set up default mongoose connection
@@ -83,7 +83,7 @@ app.post('/chat/post', (req, res) => postAllChat(req))
 // Redirect link
 app.all('*', (req, res) => res.redirect('/'))
 // Start server
-app.listen(port, () => {console.log('SERVER STARTED');});
+app.listen(port, () => { console.log('SERVER STARTED'); });
 
 /*
 This function adds a user to the database.
@@ -101,7 +101,7 @@ function addUser(req) {
         function: getUser.function,
         unit: getUser.unit
       });
-      user.save((err) => { if (err) {console.log('ERROR SAVING')}});
+      user.save((err) => { if (err) { console.log('ERROR SAVING') } });
       res.send("Account created");
       console.log('ACCOUNT CREATED');
     } else {
@@ -123,12 +123,12 @@ function login(req, res) {
   var servResp = {};
   User.find(user)
     .exec((error, results) => {
-      if ( results.length==1 ) {
+      if (results.length == 1) {
         let sessionKey = Math.floor(Math.random() * 1000);
         sessionKeys[name] = sessionKey;
         servResp.success = true;
         servResp.redirect = true;
-        res.cookie("login", {fname: name, key: sessionKey}, { maxAge: sessionLength });
+        res.cookie("login", { fname: name, key: sessionKey }, { maxAge: sessionLength });
         res.send(servResp)
       } else {
         servResp.success = true;
@@ -140,20 +140,20 @@ function login(req, res) {
 }
 
 function getAllChat(req, res) {
-  var msg = mongoose.model('ChatMessage', ChatMessageSchema );
-  msg.find({}).sort({time : 1}).exec((error, results) =>{
+  var msg = mongoose.model('ChatMessage', ChatMessageSchema);
+  msg.find({}).sort({ time: 1 }).exec((error, results) => {
     res.send(JSON.stringify(results))
   });
 }
 
-function postAllChat(req){
+function postAllChat(req) {
   let getMsg = req.body;
   chat = new ChatMessage({
     alias: 'Dispatcher',
     message: getMsg.msg,
     department: getMsg.department
   });
-  chat.save((err) => { if (err) { console.log('An error occurred.') }});
+  chat.save((err) => { if (err) { console.log('An error occurred.') } });
 }
 
 function getMap(req, res) {
@@ -163,13 +163,29 @@ function getMap(req, res) {
 function postMap(req, res) {
 
 }
-
+/*
+This function retrieves pins from db and send it users
+*/
 function getPins(req, res) {
-
+  var pins = mongoose.model('Pin', PinSchema);
+  pins.find({}).exec((error, results) => {//finds all pins. need to search for dates
+    res.send(JSON.stringify(results))
+  });
 }
-
+/*
+This function posts the report into the db
+*/
 function postPin(req, res) {
-
+  let getPin = req.body;
+  pin = new Pin({
+    title: getPin.title,
+    lat: getPin.lat,
+    long: getPin.long,
+    description: getPin.report,
+    department: getPin.department,
+    time: getPin.time,
+  });
+  pin.save((err) => { if (err) { console.log('An error occurred.') } });
 }
 
 function getRecords(req, res) {

@@ -47,7 +47,7 @@ body {
   border: 2px solid black;
   position: fixed;
   top: 20vh;
-  left: 10vw;
+  left: 20vw;
   width: 75vw;
   height: 75vh;
   padding: 10px;
@@ -55,3 +55,15 @@ body {
   background-color: khaki;
 }
 
+.sidediv {
+  border: 2px solid black;
+  position: fixed;
+  top: 20vh;
+  left: 1vw;
+  width: 20vw;
+  height: 75vh;
+  padding: 10px;
+  margin: 15px;
+  background-color: blue;
+  font-size: 14px;
+}
