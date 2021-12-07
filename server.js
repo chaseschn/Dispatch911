@@ -76,6 +76,7 @@ app.get('/get/pins', (req, res) => getPins(req, res))
 app.post('/post/pin', (req, res) => postPin(req, res))
 app.get('/get/records', (req, res) => getRecords(req, res))
 app.post('/add/user', (req, res) => addUser(req))
+app.post('/update/pin', (req, res) => updatePin(req, res))
 
 // Wide chat
 app.get('/chat', (req, res) => getAllChat(req, res))
@@ -199,6 +200,12 @@ function postPin(req, res) {
     endTime: '',
   });
   pin.save((err) => { if (err) { console.log('An error occurred.') } });
+}
+
+function updatePin(req, res) {
+  var pins = mongoose.model('Pin', PinSchema);
+  pins.findOneAndUpdate({ id: searchId }, { description: newDescription, endTime: time }).exec((error, results));
+  pins.save((err) => { if (err) { console.log('ERROR SAVING') } });
 }
 
 function getRecords(req, res) {

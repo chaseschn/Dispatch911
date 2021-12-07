@@ -95,9 +95,9 @@ function displayPin(result) {
     $.each(pins, function () {
         // label has a class that matches the pin's id
         // false (at the end) stops jQuery Geo from trying to refresh after each append
-        map.geomap("append", this, '<span class="' + this.properties.id + '"> Title: ' + this.properties.title +
+        map.geomap("append", this, { color: this.properties.color }, '<span class="' + this.properties.id + '"> Title: ' + this.properties.title +
             '<br>id: ' + this.properties.id + '<br>Description: ' + this.properties.description + '<br>Department: '
-            + this.properties.department + '<br>Time Reported: ' + this.properties.time + '</span>', false);
+            + this.properties.department + '<br>Time Reported: ' + this.properties.time + '<br>Time Ended: ' + this.properties.endTime + '</span>', false);
     });
     //refresh the map
     map.geomap("refresh");
@@ -111,4 +111,4 @@ function updateMap() {
     });
 }
 //Interval to check for pin updates
-//setInterval(() => updateMap(), 10000);
+setInterval(() => updateMap(), 10000);
