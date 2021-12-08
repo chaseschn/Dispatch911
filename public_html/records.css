@@ -5,7 +5,7 @@
   padding: 0;
 }
 body{
-  height: 100%;
+  max-height: 100%;
   width: 100%;
 }
 #header{
@@ -82,15 +82,16 @@ li,a{
   position: absolute;
   background: gray;
   top: 19vh;
-  min-height: 100%;
+  min-height: 80%;
   min-width: 100%;
   text-align: center;
-  padding: 8%;
+  overflow-y: hidden;
 }
 #content2{
-  position: absolute;
-  left: 25%;
-  max-width: 50%;
+  margin-top: 2%;
+  position: relative;
+  min-width: 100%;
+  max-height: 100%;
   font-weight: bold;
   font-size: 20px;
 }

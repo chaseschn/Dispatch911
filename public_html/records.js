@@ -8,9 +8,13 @@ function buildMsgHist(result) {
     // Selects message
     let msg = recordsArray[i];
     // Adds to box
-    displayMsg += `${msg.title}: ${msg.lat} ${msg.long} ${msg.department} ${msg.time}<br> ${msg.description}<br>`
+    displayMsg += `Title: ${msg.title}<br>
+      Location: ${msg.lat}, ${msg.long}<br>
+      Department: ${msg.department}<br>
+      Time: ${msg.time}<br>
+      Description: ${msg.description}<br><br> `
   }
-  $('#content2').html(displayMsg); 
+  $('#content2').html(displayMsg);
 }
 
 /*
@@ -23,3 +27,5 @@ function update() {
     success: (result) => buildMsgHist(result)
   });
 }
+
+setInterval(() => update(), 1000);
