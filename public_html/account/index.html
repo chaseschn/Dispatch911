@@ -6,30 +6,49 @@
 <head>
 	<meta charset="utf-8" />
 	<title> Dispatch Login </title>
-	<Link rel="stylesheet" type="text/css" href="./style.css">
+	<Link rel="stylesheet" type="text/css" href="./login.css">
 	<script src="/account/registration.js"></script>
 	<script src="/account/jquery.js"></script>
 
 </head>
 
 <body>
-	<div id="title">
-		<h1> Welcome to Dispatch 911 </h1>
-	</div>
-	<div class="images">
-		<img src="../img/first-responders.jpg">
-	</div>
-	<div id="login">
-		<div><b>Login</b></div><br>
-		<label for="emailLogin">Email</label>
-		<input id="emailLogin" type="text"> </input>
-		<br />
-		<label for="passwordLogin">Password</label>
-		<input id="passwordLogin" type="text"> </input>
-		<br />
-		<input type="button" onclick="Login();" value="Log in" />
-		<span><a href="./registration.html">New User Registration</a></span>
-	</div>
+	<nav>
+    <div id="header-out2">
+          <ul class="nav_links">
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="index.html">Login</a></li>
+            <li><a href="../dispatch.html">Dispatch</a></li>
+            <li><a href="../records.html">Records</a></li>
+          </ul>
+    </div>
+      <div id="header-out">
+        <div id='header'>
+          <img src="../img/first-responders.jpg" id="logo">
+          <div id="title">Dispatch 911</div>
+        </div>
+      </div>
+    </nav>
+
+		<div id="content">
+			<form action="#!" id="main">
+		    <h2>Login to your account</h2>
+
+		    <div class="input-parent">
+		      <label for="username">Username or Email</label>
+		      <input type="text" id="username">
+		    </div>
+
+		    <div class="input-parent">
+		      <label for="password">Password</label>
+		      <input type="password" id="password">
+		    </div>
+
+		    <button type="submit" onclick="Login();">Login</button>
+				<br></br>
+				<span><a id="register" href="./registration.html">New User Registration</a></span>
+		  </form>
+		</div>
 </body>
 
 </html>

@@ -87,3 +87,10 @@ li,a{
   text-align: center;
   padding: 8%;
 }
+#content2{
+  position: absolute;
+  left: 25%;
+  max-width: 50%;
+  font-weight: bolder;
+  font-size: 30px;
+}
