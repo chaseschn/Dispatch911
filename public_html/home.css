@@ -1,94 +1,119 @@
 /*Styling Sheet for home.html*/
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
-body{
-  height: 100%;
-  width: 100%;
-  background: gray;
+body {
+	height: 100%;
+	width: 100%;
+	background: gray;
 }
-#header{
-  background: #991919;
-  min-height: 10%;
-  min-width: 100%;
-  position: absolute;
+#header {
+	background: #991919;
+	min-height: 10%;
+	min-width: 100%;
+	position: absolute;
 }
-#logo{
-  width: 10%;
-  height: 5vw;
-  float: left;
-  border-radius: 10px;
+#logo {
+	width: 10%;
+	height: 5vw;
+	float: left;
+	border-radius: 10px;
 }
-#title{
-  font-weight: bolder;
-  font-size: 3vw;
-  float: left;
-  padding-left: 5%;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  padding-top: 1%;
+#title {
+	font-weight: bolder;
+	font-size: 3vw;
+	float: left;
+	padding-left: 5%;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	padding-top: 1%;
 }
-#header-out{
-  min-height: 6vw;
-  min-width: 100%;
-  background: #2E409E;
-  position: absolute;
+#header-out {
+	min-height: 6vw;
+	min-width: 100%;
+	background: #2e409e;
+	position: absolute;
 }
 #header-out2 {
-  text-align: center;
-  top: 6vw;
-  min-height: 3.5vw;
-  min-width: 100%;
-  background: #e2e2e2;
-  position: absolute;
-  justify-content:  center;
-  display: flex;
-  align-items: center;
-  padding: 30px, 10%;
+	text-align: center;
+	top: 6vw;
+	min-height: 3.5vw;
+	min-width: 100%;
+	background: #e2e2e2;
+	position: absolute;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	padding: 30px, 10%;
 }
-.nav_links{
-  list-style: none;
+.nav_links {
+	list-style: none;
 }
-.nav_links li{
-  display: inline-block;
-
-}
-
-.nav_links li a{
-  transition: all 0.3s ease 0s;
-  padding-left: 30px;
-  padding-right: 30px;
-  display: block;
-
-}
-.nav_links li a:hover{
-  transition: all 0.3s ease 0s;
-  padding-left: 40px;
-  padding-right: 40px;
-  display: block;
-  color: blue;
-
-}
-li,a{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  color: #708090;
-  text-decoration: none;
+.nav_links li {
+	display: inline-block;
 }
 
+.nav_links li a {
+	transition: all 0.3s ease 0s;
+	padding-left: 30px;
+	padding-right: 30px;
+	display: block;
+}
+.nav_links li a:hover {
+	transition: all 0.3s ease 0s;
+	padding-left: 40px;
+	padding-right: 40px;
+	display: block;
+	color: blue;
+}
+li,
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 500;
+	font-size: 30px;
+	color: #708090;
+	text-decoration: none;
+}
 
 /*Map features*/
 #map {
-  border: 2px solid black;
-  position: fixed;
-  top: 20vh;
-  left: 10vw;
-  width: 75vw;
-  height: 75vh;
-  padding: 10px;
-  margin: 15px;
-  background-color: khaki;
+	border: 2px solid black;
+	position: fixed;
+	top: 20vh;
+	left: 10vw;
+	width: 75vw;
+	height: 75vh;
+	padding: 10px;
+	margin: 15px;
+	background-color: khaki;
+}
+
+.geo-label {
+	margin: -2em 0 0 1em;
+	padding: 0.25em 0.5em;
+	font-family: Ariel;
+	font-size: 0.7em;
+	color: #444;
+	background: #dedede;
+	border-radius: 8px;
+	border: solid 2px #444;
+	width: auto;
+
+	/* we will show it on geomapmove */
+	display: none;
+}
+.sidediv {
+	border: 2px solid black;
+	position: fixed;
+	font-size: 14px;
+	top: 20vh;
+	left: 1vw;
+	width: 20vw;
+	height: 75vh;
+	padding: 10px;
+	margin: 15px;
+	background-color: rgb(50, 168, 153);
+	font-size: 14px;
 }

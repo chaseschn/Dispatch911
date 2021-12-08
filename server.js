@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const express = require('express');
 const parser = require('body-parser')
 const cookieParser = require('cookie-parser');
-const host = '147.182.199.110'; // Droplet ip not uploaded yet
-const port = 5000;
+const host = '142.93.202.154'; // Kevin's Droplet
+const port = 80;
 
 const app = express();
 app.use(parser.json());
@@ -121,6 +121,7 @@ app.get('/get/map', (req, res) => getMap(req, res))
 app.post('/post/map', (req, res) => postMap(req, res))
 app.get('/get/pins', (req, res) => getPins(req, res))
 app.post('/post/pin', (req, res) => postPin(req, res))
+app.post('/update/pin', (req, res) => updatePin(req, res))
 app.get('/get/records', (req, res) => getRecords(req, res))
 app.post('/account/create/:fname/:lname/:email/:password/:phone/:functionVar/:unit', (req, res) => addUser(req,res))
 
@@ -217,40 +218,72 @@ function postMap(req, res) {
 /*
 This function retrieves pins from db and send it users
 */
-function getPins(req, res) {
+function getPins(req, res) {//Works! 12/08/2021 1012
+  //console.log('reached getPins');
   var dateObj = new Date();
   currentDate = dateObj.toDateString(); // today's date; ex: 'Sun Dec 05 2021'
+  //console.log(currentDate);
   var pins = mongoose.model('Pin', PinSchema);
-  pins.find({ time : currentDate}).exec((error, results) => {//finds all pins. need to search for dates
+  pins.find({ time: { $regex: currentDate } }).exec((error, results) => {//find pins today
     res.send(JSON.stringify(results))
   });
 }
 /*
 This function posts the report into the db
 */
-function postPin(req, res) {
+function postPin(req, res) {//Works: 12/08/2021 1012
   let getPin = req.body;
+  console.log(getPin);
+  console.log(getPin.depart);
   colorCode = '';
-  if (getPin.department == 'Fire') {
+  if (getPin.depart == 'Fire') {
     colorCode = '#ff0000'//red
-} else if (getPin.department == 'Police') {
-    colorCode = '##0000ff'//blue
-} else {
+    //console.log('Fire red color')
+  } else if (getPin.depart == 'Police') {
+    colorCode = '#0000ff'//blue
+    //console.log('Police blue color')
+  } else {
     colorCode = '#00ff00'//green
-}
+    //console.log('Other colors!')
+  }
+  console.log(colorCode);
   pin = new Pin({
     title: getPin.title,
     lat: getPin.lat,
     long: getPin.long,
-    description: getPin.report,
-    department: getPin.department,
-    color: colrCode,
+    description: getPin.description,
+    department: getPin.depart,
+    color: colorCode,
     time: getPin.time,
     endTime: '',
   });
   pin.save((err) => { if (err) { console.log('An error occurred.') } });
+  console.log('saved');
 }
+//This updates the pins description and endTime
+function updatePin(req, res) {//Works 12/08/2021 1033
+  let getPin = req.body;
+  searchId = req.body.id;
+  newDescription = req.body.description;
+  time = req.body.endTime;
+  console.log('updating');
+  console.log(searchId);
+  var pins = mongoose.model('Pin', PinSchema);
+  pins.findOneAndUpdate({ _id: searchId }, { $set: { description: newDescription, endTime: time } }, { new: true }, (err, results) => {
+    if (err) {
+      console.log('ERROR SAVING');
+    };
+    console.log(results)
+  }
+  );
 
-function getRecords(req, res) {
-
+}
+function getRecords(req, res) {//Not working
+  //console.log('reached getPins');
+  dateSearch = req.body.searchDate // today's date; ex: 'Sun Dec 05 2021'
+  //console.log(currentDate);
+  var pins = mongoose.model('Pin', PinSchema);
+  pins.find({ time: { $regex: dateSearch } }).exec((error, results) => {//find pins on date search
+    res.send(JSON.stringify(results))
+  });
 }
