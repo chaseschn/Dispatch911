@@ -12,7 +12,7 @@ const app = express();
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use('/home/*', authenticate); 
+app.use('/home/*', authenticate);
 
 const db = mongoose.connection;
 const mongoDBURL = 'mongodb://127.0.0.1/dispatch';
@@ -141,7 +141,7 @@ This function adds a user to the database.
 function addUser(req,res) {
   User.find({fname: req.params.fname, lname: req.params.lname})
     .exec( function (err, results) {
-      if (err) { 
+      if (err) {
         return res.end('failed to create');
       } else if (results.length == 0) {
         var u = new User({
@@ -158,7 +158,7 @@ function addUser(req,res) {
              console.log('error: ' + err);
              if (err) { return res.end('Failed to create user!'); }
              else {res.end('Account Created');
-             //res.redirect('/account/index.html');   
+             //res.redirect('/account/index.html');
              console.log("Adding User");}
            });
       } else {
@@ -173,7 +173,7 @@ Logs in a user and creates a cookie
 function login(req, res) {
   User.find({email: req.params.email, password: req.params.password})
   .exec( function (err, results) {
-    if (err) { 
+    if (err) {
       return res.end('failed to login');
     } else if (results.length == 1) {
       addSession(req.params.email);
