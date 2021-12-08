@@ -54,7 +54,6 @@ function update() {
 This function posts new messages to the chat box.
 */
 function send() {
-  console.log(department)
   $.ajax({
     url: '/chat/post',
     method: 'POST',
