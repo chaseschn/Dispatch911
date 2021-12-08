@@ -201,7 +201,7 @@ function getAllChat(req, res) {
 function postAllChat(req) {
   let getMsg = req.body;
   chat = new ChatMessage({
-    alias: 'Dispatcher',
+    alias: req.cookie.login.email,
     message: getMsg.msg,
     department: getMsg.department
   });

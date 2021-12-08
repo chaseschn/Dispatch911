@@ -6,8 +6,8 @@ function login(){
     url: '/login',
     method: 'POST',
     data: {
-      email: $('#email').val(),
-      password: $('#pass1').val()
+      email: $('#username').val(),
+      password: $('#password').val()
     },
     success: (response) => {
       window.location.pathname = "home.html"
