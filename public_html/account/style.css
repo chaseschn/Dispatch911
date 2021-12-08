@@ -44,7 +44,7 @@ a {
   font-size: 13px;
 }
 
-form {
+#registration {
   /* Center the form on the page */
   position: fixed;
   top: 25vh;
