@@ -3,13 +3,13 @@ Adds a user to the DB.
 */
 //TO FIX: Function saves as undefined
 function Login() {
-  let email = $('#emailLogin').val();
-  let password = $('#passwordLogin').val();
+  let email = $('#username').val();
+  let password = $('#password').val();
   $.get( //not sure how to do this better
    '/account/login/' + encodeURIComponent(email) + '/' + encodeURIComponent(password),
     (data, status) => {
       if (data == 'Login Successful') {
-        window.location.href = '/home.html';
+        window.location.href = '../home.html';
       }
   });
 }
@@ -30,5 +30,5 @@ function createAccount() {
         window.location.href = '/account/index.html';
       }
   });
-  
+
 }

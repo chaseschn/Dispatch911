@@ -12,7 +12,7 @@ const app = express();
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use('/home/*', authenticate);
+app.use('/dispatch.html', authenticate);
 
 const db = mongoose.connection;
 const mongoDBURL = 'mongodb://127.0.0.1/dispatch';
@@ -23,7 +23,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // USER SESSIONS
 var sessions = {};
-const LOGIN_TIME = 60000;
+const LOGIN_TIME = 600000;
 
 function filterSessions() {
   var now = Date.now();
@@ -102,33 +102,17 @@ var PinSchema = new Schema({
 });
 var Pin = mongoose.model('Pin', PinSchema);
 
-// Records Schema
-var RecordSchema = new Schema({
-  title: String,
-  lat: Number,
-  long: Number,
-  description: String,
-  department: String,
-  time: String,
-  endTime: String
-});
-var Record = mongoose.model('Record', RecordSchema);
 
 /// OBJECTS
 app.use(express.static('public_html'))
 app.get('/account/login/:email/:password', (req, res) => login(req, res))
-app.get('/get/map', (req, res) => getMap(req, res))
-app.post('/post/map', (req, res) => postMap(req, res))
 app.get('/get/pins', (req, res) => getPins(req, res))
 app.post('/post/pin', (req, res) => postPin(req, res))
 app.post('/update/pin', (req, res) => updatePin(req, res))
 app.get('/get/records', (req, res) => getRecords(req, res))
 app.post('/account/create/:fname/:lname/:email/:password/:phone/:functionVar/:unit', (req, res) => addUser(req,res))
-
-// Wide chat
 app.get('/chat', (req, res) => getAllChat(req, res))
 app.post('/chat/post', (req, res) => postAllChat(req))
-
 // Redirect link
 app.all('*', (req, res) => res.redirect('/'))
 // Start server
@@ -183,12 +167,6 @@ function login(req, res) {
       res.end('incorrect number of results');
     }
   });
-  function getAllChat(req, res) {
-    var msg = mongoose.model('ChatMessage', ChatMessageSchema);
-    msg.find({}).sort({ time: 1 }).exec((error, results) => {
-      res.send(JSON.stringify(results))
-    });
-  }
 }
 
 function getAllChat(req, res) {
@@ -201,19 +179,11 @@ function getAllChat(req, res) {
 function postAllChat(req) {
   let getMsg = req.body;
   chat = new ChatMessage({
-    alias: req.cookie.login.email,
+    alias: getMsg.department,
     message: getMsg.msg,
     department: getMsg.department
   });
   chat.save((err) => { if (err) { console.log('An error occurred.') } });
-}
-
-function getMap(req, res) {
-
-}
-
-function postMap(req, res) {
-
 }
 /*
 This function retrieves pins from db and send it users
