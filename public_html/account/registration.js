@@ -30,5 +30,5 @@ function createAccount() {
         window.location.href = '/account/index.html';
       }
   });
-
+  
 }
