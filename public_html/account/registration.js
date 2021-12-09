@@ -2,7 +2,7 @@
 Adds a user to the DB.
 */
 //TO FIX: Function saves as undefined
-function Login() {
+function login() {
   let email = $('#emailLogin').val();
   let password = $('#passwordLogin').val();
   $.get( //not sure how to do this better
